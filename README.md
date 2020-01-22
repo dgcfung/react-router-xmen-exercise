@@ -1,125 +1,68 @@
-# X-FACEBOOK
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![](https://media.giphy.com/media/loAnHAy04UviE/giphy.gif)
+## Available Scripts
 
-Professor X has decided to replace Cerebro with a new social media site called X-Facebook where X-Men can check out each other's profiles online. He's created high fidelity wireframes that you can check out below. It's your job to build them.
+In the project directory, you can run:
 
-## Getting Started
-- Fork and clone this repo.
-- `cd` into your cloned app and create a new React App.
-  - Don't like having your React app nested a directory down? Try `npx create-react-app .` from inside the root directory (there should only be one) to convert it into a React app of its own!
-- Open your app with `code .` and launch it in the browser with `npm start`.
-- Import and set up `Router` in your `index.js` file.
-- Turn your `App.js` file into a class component.
-- Sign up for an API key at https://superheroapi.com/index.html. Signing up requires a Facebook account, so if you don't have one, then feel free to borrow this one (please use responsibly): `10112156875431003`.
+### `npm start`
 
-## Component Heirarchy
-Your finished app should have a heirarchy as follows:
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```js
-<App /> 
-  - <Header />
-  - <main></main>
-    - <Heroes /> // page with all the heroes
-    - <Profile /> // page with selected hero
-  - <Footer />
-```
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-<details><summary>Hint</summary>
-  
-  Don't forget to import axios from axios and Route from react-router-dom in your App.js!
+### `npm test`
 
-</details>
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Header and Footer 
-Your `<Header />` will need to contain a link to your home page, which in this case is the `<Heroes />` component. 
+### `npm run build`
 
-<details><summary>Hint</summary>
-  
-  Don't forget to import Link from react-router-dom!
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-</details>
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-<details><summary>Hint</summary>
-  
-  When you set up the Route path for `<Heroes />`, remember that the paths for home pages must be exact!
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-</details>
+### `npm run eject`
 
-## Getting Heroes 
-Let's start with the `<Heroes />` Component. When this component mounts, it should make an axios call that hits the X-Men database Professor X created really late last night. It should then map through the resulting list of heroes and render them onto the screen. Write the method that makes the axios call in `App.js` and pass it down as props to `<Heroes />`
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-The endpoint you'll need for this `axios.get` request is `https://basic-superhero-api.herokuapp.com/superheros`. Upon a successful request, you'll need to add this list of superheroes to the state of `App.js` and pass it to to `<Heroes />` through props as well.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-You may notice that this url is different from the one listed above and does not require an access key as it was created in-house by instructors GA. Professor X forgot to make an endpoint that returns multiple mutants, apparently.
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-When you map through the heroes, keep in mind that each hero will need to **link** to its corresponding hero **Route**. You will need to put each X-Men's `hero_id` in the link url and the corresponding route path will need to have that `hero_id` as a `/:slug`, so that you can pass the `hero_id` to the `<Profile>` as props in the route when it's rendered.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-**NOTE:** While there are various ways that you can pass the necessary hero id to `<Profile />`, for this assignment, you **MUST** do it using the route.
+## Learn More
 
-<details><summary>Hint</summary>
-  
-  Don't forget to import Link from react-router-dom!
-  
-</details>
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-<details><summary>Hint</summary>
-  
-  When you map through each hero, you will need to wrap each hero `<div>` with a `<Link>`
-  
-</details>
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-<details><summary>Hint</summary>
-  
-  In that last hint, this is what I was talking about specifically.
-  
-  ```
-  props.heroes.map(hero => (
-    <Link to={`/${hero.hero_id}`} key={hero.id} >
-      // hero details
-    </Link>
-  ))
-  ```
-  
-  
-</details>
+### Code Splitting
 
-<details><summary>Hint</summary>
-  
-  Confused about passing the `hero_id` as props through the route? Review the [Advanced Router lesson](https://git.generalassemb.ly/sei-nyc-dinosaurs/Advanced-React-Router).
-  
-</details>
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-## Profiling Heroes
-We're going to do something **CRAZY** here. We're going to make our `<Profile />` componentent **stateful**, either by setting it up as a class component or by using hooks.
+### Analyzing the Bundle Size
 
-Upon mounting, this component should do an axios get request to `https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/${apiKey}/${this.props.heroId}`. That call should provide loads of details on the selected hero. Add that hero to `<Profile>`'s state.
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-Render the hero's image and details. As there will be a millisecond where you don't have a hero set in state, you'll need to use conditional rendering to only return the hero's details once the hero has been added to state.
+### Making a Progressive Web App
 
-Feel free to include different details about the superheroes than just what's shown in the wireframes.
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-## Styling
-Try your best to match the wireframes below.
+### Advanced Configuration
 
-<details><summary>Hint</summary>
-  
-CSS Grid is a great solution for the `<Heroes />` layout.
-  
-</details>
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-## Make it X-Tremely Good
-- Import a cool comic book or graffiti font to add some X-Men flavor to your app's appearance.
-- Add hover statuses to your hero cards and your home link
-- Use conditional rendering to only make the `Home` link appear on the `<Portfolio />` page.
-- Explore the `box-shadow` property in CSS to give your cards a 3D pop out look. Try to not only adjust the size of the shadow, but also its blur.
-- Use the CSS property `position: sticky` to keep the `<Header />` visible at all time.
+### Deployment
 
-## Wireframes
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-#### Heroes Page
-If you click on a hero, it should take you to their profile page.
-![](https://res.cloudinary.com/briandanger/image/upload/v1571231252/screencapture-localhost-3001-2019-10-16-09_04_43_gegz6e.png)
+### `npm run build` fails to minify
 
-#### Profile Page
-![](https://res.cloudinary.com/briandanger/image/upload/v1571230954/screencapture-localhost-3001-339-2019-10-16-09_00_44_obwk73.png)
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
