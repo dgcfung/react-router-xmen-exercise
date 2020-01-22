@@ -43,6 +43,8 @@ class App extends React.Component {
 
       
 <main>
+<Header/>
+
 
 <Route
 exact path= '/'
@@ -59,6 +61,8 @@ component={
 }
   
 />
+
+<Footer/>
 </main>
 
 

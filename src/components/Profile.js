@@ -45,7 +45,8 @@ class Profile extends React.Component{
             <div>
         <h1>{this.state.newCharacter.name}</h1>
         <h1>{this.state.newCharacter.id}</h1>
-        <h1>{this.state.newCharacter.biography['full-name']}</h1>
+        <h1>Real Name:{this.state.newCharacter.biography['full-name']}</h1>
+        <h1>{this.state.newCharacter.id}</h1>
         </div>
         )
     }
