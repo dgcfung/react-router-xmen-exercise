@@ -2,40 +2,45 @@ import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-import Axios from 'axios'
+import axios from 'axios'
+import Header from './components/Header'
+import Heroes from './components/Heroes'
+import Footer from './components/Footer'
+import Profile from './components/Profile'
 
 class App extends React.Component {
-  constructor (){
+  constructor (props){
+    super(props)
     this.state={
       characters:[]
     }
   }
 
-  fetchPictures= async()=>{
-    const response = await Axios.get('https://basic-superhero-api.herokuapp.com/superheros')
-    const callData= res.data
-    console.log(data)
+  fetchPictures = async () => {
+    const response = await axios.get('https://basic-superhero-api.herokuapp.com/superheros')
+    const data= response.data
+    // console.log(data)
     this.setState({
-      xPictures: data
+      characters: data
     })
 
   }
 
   componentDidMount(){
-    this.fetchCharacters()
+    // this.fetchCharacters()
     this.fetchPictures()
   }
 
   render(){
-
+    console.log(this.state.characters)
   return(
 <div>
-  <App /> 
+  {/* <App /> 
   <Header/>
-  <main></main>
-  <Heroes /> 
-  <Profile /> 
-  <Footer/>
+  <main></main> */}
+  <Heroes newHero={this.state.characters}/> 
+  {/* <Profile /> 
+  <Footer/> */}
   </div>
   )
   }
