@@ -34,13 +34,34 @@ class App extends React.Component {
   render(){
     console.log(this.state.characters)
   return(
-<div>
-  {/* <App /> 
-  <Header/>
-  <main></main> */}
-  <Heroes newHero={this.state.characters}/> 
-  {/* <Profile /> 
-  <Footer/> */}
+  <div className="App">
+
+
+
+
+
+
+      
+<main>
+
+<Route
+exact path= '/'
+component= {
+  ()=> <Heroes newHero={this.state.characters}/> 
+}
+
+/>
+
+<Route
+exact path= '/:id'
+component={
+  (navProps)=> <Profile navProps={navProps} />
+}
+  
+/>
+</main>
+
+
   </div>
   )
   }

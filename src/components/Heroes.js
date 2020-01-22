@@ -13,8 +13,8 @@ function Heroes(props){
     return(
         <div>
             {props.newHero.map(hero => (
-                <NavLink to={`/hero/${hero.hero_id}`}>
-                {hero.name}
+                <NavLink to={`/${hero.hero_id}`}>
+                <h1>{hero.name}</h1>
                 <img src= {hero.image_url}/>
                 </NavLink>
             ))}
