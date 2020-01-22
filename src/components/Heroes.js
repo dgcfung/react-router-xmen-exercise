@@ -11,11 +11,11 @@ function Heroes(props){
     
     //   }
     return(
-        <div>
+        <div className= "hero">
             {props.newHero.map(hero => (
-                <NavLink to={`/${hero.hero_id}`}>
+                <NavLink className= 'newHero' to={`/${hero.hero_id}`}>
                 <h1>{hero.name}</h1>
-                <img src= {hero.image_url}/>
+                <img className= 'photos' src= {hero.image_url}/>
                 </NavLink>
             ))}
         </div>

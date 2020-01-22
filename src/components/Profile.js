@@ -44,9 +44,11 @@ class Profile extends React.Component{
         return(
             <div>
         <h1>{this.state.newCharacter.name}</h1>
-        <h1>{this.state.newCharacter.id}</h1>
+        <h1>{this.state.newCharacter.appearance.gender}</h1>
+        <h1>{this.state.newCharacter.appearance.race}</h1>
         <h1>Real Name:{this.state.newCharacter.biography['full-name']}</h1>
         <img src= {this.state.newCharacter.image.url}></img>
+        
         </div>
         )
     }

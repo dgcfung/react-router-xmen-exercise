@@ -6,7 +6,7 @@ function Header(props){
     return(
     <div className= "header-title">
         <nav className="nav-links">
-        <NavLink to ='/'>Home</NavLink>
+        <NavLink className = "home" to ='/'>Home</NavLink>
         </nav>
 
         <h1>X-Facebook</h1>

@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  font-style: italic;
+  text-shadow: 2px 2px #ff0000;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.home{  
+  float: left;
+  margin: 0 2% 0 2%;
+
 }
 
 .App-logo {
@@ -11,6 +20,24 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.photos{
+  display: inline-block
+}
+
+.hero{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.newHero{
+  color: black;
+  /* width: 35%; */
+  margin: 2%;
+  border: 5%;
+  border-color: black;
+  box-shadow: 0 0 3px #ccc;
 }
 
 .App-header {
